@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>triplexGh的个人网站</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 更新导航栏部分 -->
+<nav class="navbar">
+    <div class="nav-content">
+        <div class="logo">triplexGh</div>
+        <div class="nav-controls">
+            <button class="theme-toggle" onclick="toggleTheme()" title="切换主题">
+                <i class="fas fa-sun"></i>
+            </button>
+            <button class="lang-toggle" onclick="toggleLanguage()" title="切换语言">
+                <i class="fas fa-book"></i>
+                <span class="current-lang">中</span>
+            </button>
+            <button class="admin-toggle" onclick="openAdminLogin()" title="管理员模式">
+                <i class="fas fa-user-shield"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#home" data-en="Home">首页</a>
+                <a href="#about" data-en="About">关于</a>
+                <a href="#portfolio" data-en="Portfolio">作品集</a>
+                <a href="#contact" data-en="Contact">联系</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- 添加管理员登录弹窗 -->
+<div class="admin-modal" id="adminLoginModal">
+    <div class="admin-modal-content">
+        <h3 data-en="Admin Login">管理员登录</h3>
+        <div class="form-group">
+            <label for="adminLoginPassword" data-en="Password">密码</label>
+            <input type="password" id="adminLoginPassword" required>
+        </div>
+        <div class="form-buttons">
+            <button onclick="handleAdminLogin()" class="submit-btn" data-en="Login">登录</button>
+            <button onclick="closeAdminLogin()" class="cancel-btn" data-en="Cancel">取消</button>
+        </div>
+    </div>
+</div>
+
+    <section id="home" class="hero">
+        <div class="color-background"></div>
+        <div class="hero-content">
+            <h1 data-en="Welcome to triplexGh's Website">欢迎来到 triplexGh 的个人网站</h1>
+            <p data-en="This is where triplexGh shares ideas and works">这里是 triplexGh 分享想法和作品的地方</p>
+            <div class="dynamic-text">
+                <div class="text-item">
+                    <span class="bounce">C</span>
+                    <span class="roll">O</span>
+                    <span class="fade">D</span>
+                    <span class="bounce">I</span>
+                    <span class="roll">N</span>
+                    <span class="fade">G</span>
+                </div>
+                <div class="text-item">
+                    <span class="roll">D</span>
+                    <span class="bounce">E</span>
+                    <span class="fade">S</span>
+                    <span class="roll">I</span>
+                    <span class="bounce">G</span>
+                    <span class="fade">N</span>
+                </div>
+                <div class="text-item">
+                    <span class="fade">S</span>
+                    <span class="roll">H</span>
+                    <span class="bounce">A</span>
+                    <span class="fade">R</span>
+                    <span class="roll">E</span>
+                </div>
+                <div class="text-item">
+                    <span class="bounce">G</span>
+                    <span class="roll">R</span>
+                    <span class="fade">O</span>
+                    <span class="bounce">W</span>
+                    <span class="roll">T</span>
+                    <span class="fade">H</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 data-en="About triplexGh">关于 triplexGh</h2>
+        <div class="about-content">
+            <div class="about-preview" data-en="As a freshman at the Communication University of China (CUC), I find myself at the beginning of an exciting journey in Electronic Information Engineering. The bustling campus life and cutting-edge facilities here have already made me feel at home in this dynamic academic environment.">
+                作为中国传媒大学（CUC）的一名新生，我正在电子信息工程领域开启一段激动人心的旅程。这里充满活力的校园生活和先进的设施已经让我在这个充满活力的学术环境中感到宾至如归。
+            </div>
+            <div class="about-full">
+                <p data-en="My fascination with technology began in my early teens when I first started tinkering with circuit boards and small electronics projects. Now, as I delve deeper into my major, I'm thrilled to be transforming that childhood curiosity into professional knowledge. The field of electronic information engineering particularly appeals to me because it sits at the intersection of hardware and software, offering countless opportunities to innovate and create solutions for real-world challenges.">
+                    我对技术的痴迷始于十几岁时，那时我第一次开始摆弄电路板和小型电子项目。现在，随着我深入专业学习，我很高兴能将童年的好奇心转化为专业知识。电子信息工程领域特别吸引我，因为它位于硬件和软件的交叉点，为解决现实世界的挑战提供了无数创新和创造的机会。
+                </p>
+                <p data-en="Life at CUC has been both challenging and rewarding. Between attending lectures on digital circuits, participating in laboratory sessions, and collaborating with classmates on projects, I'm constantly learning and growing. What excites me most about my program is the practical approach to learning – we're not just studying theories but actually applying them through hands-on experiments and real-world applications.">
+                    在中传的生活既充满挑战又令人满意。在参加数字电路讲座、实验课程和与同学合作项目之间，我不断学习和成长。最让我兴奋的是课程的实践方法——我们不仅仅是学习理论，而是通过动手实验和实际应用来应用它们。
+                </p>
+                <!-- 其他段落... -->
+            </div>
+            <button class="read-more" onclick="toggleAbout()" data-en="Read More">
+                展开阅读
+            </button>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2 data-en="@Works">@作品</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item video-item">
+                <div class="video-preview">
+                    <video loop muted>
+                        <source src="作品/spacex.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <h3 data-en="SpaceX Project">SpaceX 项目</h3>
+                <p data-en="Video demonstration of the SpaceX project">SpaceX 项目视频演示</p>
+            </div>
+            <div class="portfolio-item">
+                <i class="fas fa-code"></i>
+                <h3 data-en="Personal Website">个人网站</h3>
+                <p data-en="A responsive personal website developed using HTML and CSS">使用 HTML 和 CSS 开发的响应式个人网站</p>
+            </div>
+            <div class="portfolio-item">
+                <i class="fas fa-paint-brush"></i>
+                <h3 data-en="Design Works">设计作品</h3>
+                <p data-en="UI/UX design portfolio">UI/UX 设计作品集</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-en="About triplexGh">关于 triplexGh</h3>
+                <p data-en="Loves technology, focuses on creation, and shares life moments">热爱技术，专注创作，分享生活点滴</p>
+                <p class="school">
+                    <i class="fas fa-university"></i>
+                    <a href="https://www.cuc.edu.cn" target="_blank" class="school-link" data-en="Communication University of China">
+                        Communication University of China
+                    </a>
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-en="Quick Links">快速链接</h3>
+                <ul>
+                    <li><a href="#home" data-en="Home">首页</a></li>
+                    <li><a href="#about" data-en="About">关于</a></li>
+                    <li><a href="#portfolio" data-en="Portfolio">作品集</a></li>
+                    <li><a href="#contact" data-en="Contact">联系</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-en="Contact Information">联系方式</h3>
+                <ul>
+                    <li>
+                        <i class="far fa-envelope"></i>
+                        <a href="mailto:triplex.gh@gmail.com" class="contact-link" data-en="triplex.gh@gmail.com">
+                            triplex.gh@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fab fa-weixin"></i>
+                        <a href="weixin://dl/chat?googolhyer" class="contact-link wechat-link" data-en="WeChat: googolhyer">
+                            微信：googolhyer
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fab fa-qq"></i>
+                        <a href="tencent://message/?uin=3374084425" class="contact-link" data-en="QQ: 3374084425">
+                            QQ：3374084425
+                        </a>
+                    </li>
+                    <li><i class="fas fa-map-marker-alt"></i> 中国，北京</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.douyin.com/67949885574" target="_blank" class="social-link" data-en="Douyin">
+                <i class="fab fa-tiktok"></i>
+                <span data-en="Douyin">抖音</span>
+            </a>
+            <a href="https://twitter.com/triplex_gh" target="_blank" class="social-link" data-en="X">
+                <i class="fab fa-x-twitter"></i>
+                <span data-en="X">X</span>
+            </a>
+        </div>
+
+        <div class="footer-bottom">
+            <p data-en="© 2024 triplexGh. All rights reserved.">© 2024 triplexGh. 保留所有权利.</p>
+            <p class="footer-motto" data-en="Innovation • Sharing • Growth">创新 • 分享 • 成长</p>
+        </div>
+    </footer>
+
+    <!-- 添加微信二维码弹窗 -->
+    <div class="wechat-qr" id="wechatQR">
+        <div class="qr-content">
+            <img src="path/to/your/qrcode.jpg" alt="WeChat QR Code" data-en="Scan to add WeChat">
+            <p data-en="Scan QR Code to add WeChat">扫描二维码添加微信</p>
+            <button class="close-qr" onclick="closeQR()" data-en="Close">关闭</button>
+        </div>
+    </div>
+
+    <!-- 访客提交表单 -->
+    <div class="submit-form-modal" id="guestSubmitModal">
+        <div class="submit-form-content">
+            <h3 data-en="Submit Your Work">提交作品</h3>
+            <form id="guestSubmitForm" onsubmit="handleGuestSubmit(event)">
+                <div class="form-group">
+                    <label for="guestName" data-en="Your Name">您的名字</label>
+                    <input type="text" id="guestName" required>
+                </div>
+                <div class="form-group">
+                    <label for="guestEmail" data-en="Your Email">您的邮箱</label>
+                    <input type="email" id="guestEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="guestWorkTitle" data-en="Work Title">作品标题</label>
+                    <input type="text" id="guestWorkTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="guestWorkDesc" data-en="Description">作品描述</label>
+                    <textarea id="guestWorkDesc" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="guestWorkLink" data-en="Work Link">作品链接</label>
+                    <input type="url" id="guestWorkLink" placeholder="http://" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="submit-btn" data-en="Submit">提交</button>
+                    <button type="button" class="cancel-btn" onclick="closeGuestSubmitForm()" data-en="Cancel">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 管理员提交表单 -->
+    <div class="submit-form-modal" id="adminSubmitModal">
+        <div class="submit-form-content">
+            <h3 data-en="Admin Submit">管理员提交</h3>
+            <form id="adminSubmitForm" onsubmit="handleAdminSubmit(event)">
+                <div class="form-group">
+                    <label for="adminPassword" data-en="Admin Password">管理员密码</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminWorkTitle" data-en="Work Title">作品标题</label>
+                    <input type="text" id="adminWorkTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminWorkDesc" data-en="Description">作品描述</label>
+                    <textarea id="adminWorkDesc" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="adminWorkType" data-en="Type">类型</label>
+                    <select id="adminWorkType" required>
+                        <option value="code" data-en="Code">代码</option>
+                        <option value="design" data-en="Design">设计</option>
+                        <option value="video" data-en="Video">视频</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="adminWorkFile" data-en="File">文件</label>
+                    <input type="file" id="adminWorkFile" accept="image/*,video/*,.zip,.rar">
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="submit-btn" data-en="Submit">提交</button>
+                    <button type="button" class="cancel-btn" onclick="closeAdminSubmitForm()" data-en="Cancel">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 视频模态框 -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <video controls>
+                <source src="作品/spacex.mp4" type="video/mp4">
+            </video>
+            <button class="close-video" onclick="closeVideoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+</body>
+
+<script>
+// 主题切换
+function toggleTheme() {
+    const html = document.documentElement;
+    const themeIcon = document.querySelector('.theme-toggle i');
+    
+    if (html.getAttribute('data-theme') === 'light') {
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.className = 'fas fa-moon';
+    } else {
+        html.setAttribute('data-theme', 'light');
+        themeIcon.className = 'fas fa-sun';
+    }
+}
+
+// 语言切换
+function toggleLanguage() {
+    const html = document.documentElement;
+    const langBtn = document.querySelector('.lang-toggle .current-lang');
+    const isEnglish = html.getAttribute('data-lang') === 'en';
+    
+    if (isEnglish) {
+        html.setAttribute('data-lang', 'zh');
+        langBtn.textContent = '中';
+        translatePage('zh');
+    } else {
+        html.setAttribute('data-lang', 'en');
+        langBtn.textContent = 'EN';
+        translatePage('en');
+    }
+}
+
+// 页面翻译
+function translatePage(lang) {
+    const elements = document.querySelectorAll('[data-en]');
+    elements.forEach(el => {
+        if (lang === 'en') {
+            el.dataset.zh = el.textContent;
+            el.textContent = el.dataset.en;
+        } else {
+            el.textContent = el.dataset.zh;
+        }
+    });
+}
+
+// 添加展开/收起功能
+function toggleAbout() {
+    const aboutFull = document.querySelector('.about-full');
+    const readMoreBtn = document.querySelector('.read-more');
+    const isExpanded = aboutFull.classList.contains('expanded');
+    
+    if (!isExpanded) {
+        aboutFull.classList.add('expanded');
+        readMoreBtn.textContent = document.documentElement.getAttribute('data-lang') === 'en' ? 'Show Less' : '收起';
+        
+        // 添加剩余的段落
+        const remainingParagraphs = `
+            <p data-en="Outside of academics, I'm actively involved in the university's Electronics Club, where I work with fellow enthusiasts on various projects. This experience has not only enhanced my technical skills but also helped me develop valuable teamwork and communication abilities. I've already made close friends who share my passion for technology, and together we often discuss emerging trends in electronics and brainstorm innovative project ideas.">
+                在学术之外，我积极参与大学的电子俱乐部，与志同道合的爱好者一起进行各种项目。这种经历不仅提升了我的技术能力，还帮助我培养了宝贵的团队合作和沟能力。我已经结识了一些志同道合的好朋友，我们经常一讨论电子领域的新趋势，并集思广益创新项目的想法。
+            </p>
+            <p data-en="Looking ahead, I aspire to contribute to the field of electronic information engineering, particularly in areas like embedded systems or telecommunications. The rapid advancement of technology in China and globally presents exciting opportunities, and I'm eager to be part of this evolution.">
+                展望未来，我希望能在电子信息工程领域做出贡献，特别是在嵌入式系统或电信等领域。中国和全球技术的快速发展带来了令人兴奋的机遇，我渴望成为这一发展进程的一部分。
+            </p>
+            <p data-en="Through my education at CUC, I'm building a strong foundation for my future career while embracing the challenges and opportunities that come with being a university student in this dynamic field.">
+                通过在中传的学习，我正在为未来的职业生涯打下坚实的基础，同时拥抱作为这个充满活力领域的大学生所面临的挑战和机遇。
+            </p>
+        `;
+        
+        // 检查是否已经添加了这些段落
+        if (!aboutFull.querySelector('p:nth-child(3)')) {
+            aboutFull.insertAdjacentHTML('beforeend', remainingParagraphs);
+        }
+    } else {
+        aboutFull.classList.remove('expanded');
+        readMoreBtn.textContent = document.documentElement.getAttribute('data-lang') === 'en' ? 'Read More' : '展开阅读';
+    }
+}
+
+// 视频预览相关函数
+document.addEventListener('DOMContentLoaded', function() {
+    const videoPreview = document.querySelector('.video-preview');
+    if (videoPreview) {
+        const video = videoPreview.querySelector('video');
+        const overlay = videoPreview.querySelector('.video-overlay');
+        let isPlaying = false;
+
+        // 点击播放/暂停
+        videoPreview.addEventListener('click', function() {
+            if (!isPlaying) {
+                video.play()
+                    .then(() => {
+                        videoPreview.classList.add('playing');
+                        overlay.style.opacity = '0';
+                        isPlaying = true;
+                    })
+                    .catch(error => {
+                        console.error("视频播放失败:", error);
+                    });
+            } else {
+                video.pause();
+                video.currentTime = 0;
+                videoPreview.classList.remove('playing');
+                overlay.style.opacity = '1';
+                isPlaying = false;
+            }
+        });
+
+        // 视频播放结束时重置状态
+        video.addEventListener('ended', function() {
+            video.currentTime = 0;
+            videoPreview.classList.remove('playing');
+            overlay.style.opacity = '1';
+            isPlaying = false;
+        });
+
+        // 鼠标悬停时自动播放
+        videoPreview.addEventListener('mouseenter', function() {
+            if (!isPlaying) {
+                video.play()
+                    .then(() => {
+                        videoPreview.classList.add('playing');
+                        overlay.style.opacity = '0';
+                        isPlaying = true;
+                    })
+                    .catch(error => {
+                        console.error("视频播放失败:", error);
+                    });
+            }
+        });
+
+        // 鼠标离开时暂停
+        videoPreview.addEventListener('mouseleave', function() {
+            if (isPlaying) {
+                video.pause();
+                video.currentTime = 0;
+                videoPreview.classList.remove('playing');
+                overlay.style.opacity = '1';
+                isPlaying = false;
+            }
+        });
+    }
+});
+
+// 作品提交相关函数
+function openGuestSubmitForm() {
+    document.getElementById('guestSubmitModal').style.display = 'flex';
+}
+
+function closeGuestSubmitForm() {
+    document.getElementById('guestSubmitModal').style.display = 'none';
+}
+
+function handleGuestSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    // 这里可以添加提交逻辑
+    alert('作品提交成功！');
+    closeGuestSubmitForm();
+}
+
+function openAdminSubmitForm() {
+    document.getElementById('adminSubmitModal').style.display = 'flex';
+}
+
+function closeAdminSubmitForm() {
+    document.getElementById('adminSubmitModal').style.display = 'none';
+}
+
+function handleAdminSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    // 这里可以添加提交逻辑
+    alert('作品提交成功！');
+    closeAdminSubmitForm();
+}
+
+// 点击弹窗外部关闭
+document.getElementById('guestSubmitModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeGuestSubmitForm();
+    }
+});
+
+document.getElementById('adminSubmitModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeAdminSubmitForm();
+    }
+});
+
+// 添加到现有的 script 标签中
+// 管理员模式相关函数
+const ADMIN_PASSWORD = '54nibaba';
+let isAdminMode = false;
+
+function openAdminLogin() {
+    const modal = document.getElementById('adminLoginModal');
+    modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.classList.add('active');
+    }, 10);
+}
+
+function closeAdminLogin() {
+    const modal = document.getElementById('adminLoginModal');
+    modal.classList.remove('active');
+    setTimeout(() => {
+        modal.style.display = 'none';
+        document.getElementById('adminLoginPassword').value = '';
+    }, 300);
+}
+
+function handleAdminLogin() {
+    const password = document.getElementById('adminLoginPassword').value;
+    
+    if (password === ADMIN_PASSWORD) {
+        isAdminMode = true;
+        closeAdminLogin();
+        enterAdminMode();
+        // 更新管理员按钮样式
+        const adminBtn = document.querySelector('.admin-toggle');
+        adminBtn.style.background = '#28a745';
+        adminBtn.style.color = 'white';
+    } else {
+        alert('管理员密码错误！');
+    }
+}
+
+function enterAdminMode() {
+    // 显示删除按钮
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+        if (!item.querySelector('.admin-delete-btn')) {
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'admin-delete-btn';
+            deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+            deleteBtn.onclick = function(e) {
+                e.stopPropagation();
+                if (confirm('确定要删除这个作品吗？')) {
+                    item.remove();
+                }
+            };
+            item.appendChild(deleteBtn);
+        }
+    });
+}
+
+function exitAdminMode() {
+    isAdminMode = false;
+    // 恢复管理员按钮样式
+    const adminBtn = document.querySelector('.admin-toggle');
+    adminBtn.style.background = 'none';
+    adminBtn.style.color = 'var(--text-color)';
+    // 移除删除按钮
+    document.querySelectorAll('.admin-delete-btn').forEach(btn => btn.remove());
+}
+
+// 点击弹窗外部关闭
+document.getElementById('adminLoginModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeAdminLogin();
+    }
+});
+
+// ESC键关闭弹窗
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('adminLoginModal').style.display === 'flex') {
+        closeAdminLogin();
+    }
+});
+    
+    // 修改添加作品按钮样式
+    const adminBtn = document.querySelector('.submit-work-btn.admin');
+    adminBtn.style.background = '#28a745';
+    adminBtn.innerHTML = '<i class="fas fa-plus"></i><span>添加新作品</span>';
+    
+    // 添加退出管理员模式按钮
+    if (!document.querySelector('.exit-admin-btn')) {
+        const exitBtn = document.createElement('button');
+        exitBtn.className = 'exit-admin-btn';
+        exitBtn.innerHTML = '<i class="fas fa-sign-out-alt"></i><span>退出管理员模式</span>';
+        exitBtn.onclick = exitAdminMode;
+        document.querySelector('.submit-buttons').appendChild(exitBtn);
+    }
+
+function exitAdminMode() {
+    isAdminMode = false;
+    // 移除删除按钮
+    document.querySelectorAll('.admin-delete-btn').forEach(btn => btn.remove());
+    
+    // 恢复添加作品按钮样式
+    const adminBtn = document.querySelector('.submit-work-btn.admin');
+    adminBtn.style.background = '#007bff';
+    adminBtn.innerHTML = '<i class="fas fa-lock"></i><span>管理员提交</span>';
+    
+    // 移除退出按钮
+    document.querySelector('.exit-admin-btn').remove();
+}
+
+// 更新视频预览相关函数
+document.addEventListener('DOMContentLoaded', function() {
+    const videoPreview = document.querySelector('.video-preview');
+    const videoModal = document.getElementById('videoModal');
+    const modalVideo = videoModal.querySelector('video');
+    
+    if (videoPreview) {
+        const previewVideo = videoPreview.querySelector('video');
+        const overlay = videoPreview.querySelector('.video-overlay');
+
+        // 点击预览打开模态框
+        videoPreview.addEventListener('click', function() {
+            videoModal.classList.add('active');
+            modalVideo.currentTime = previewVideo.currentTime;
+            modalVideo.play();
+        });
+
+        // 关闭模态框时暂停视频
+        window.closeVideoModal = function() {
+            videoModal.classList.remove('active');
+            modalVideo.pause();
+        };
+
+        // 点击模态框背景关闭
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+
+        // ESC 键关闭模态框
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                closeVideoModal();
+            }
+        });
+    }
+});
+
+// 更新视频预览相关函数
+document.addEventListener('DOMContentLoaded', function() {
+    const videoPreview = document.querySelector('.video-preview');
+    const videoModal = document.getElementById('videoModal');
+    const modalVideo = videoModal.querySelector('video');
+    
+    if (videoPreview) {
+        const previewVideo = videoPreview.querySelector('video');
+        const overlay = videoPreview.querySelector('.video-overlay');
+
+        // 点击预览打开模态框
+        videoPreview.addEventListener('click', function() {
+            videoModal.style.display = 'flex';
+            setTimeout(() => {
+                videoModal.classList.add('active');
+                modalVideo.currentTime = previewVideo.currentTime;
+                modalVideo.play();
+            }, 10);
+        });
+
+        // 关闭模态框时暂停视频
+        window.closeVideoModal = function() {
+            videoModal.classList.remove('active');
+            setTimeout(() => {
+                videoModal.style.display = 'none';
+                modalVideo.pause();
+                modalVideo.currentTime = 0;
+            }, 300);
+        };
+
+        // 点击模态框背景关闭
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+
+        // ESC 键关闭模态框
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                closeVideoModal();
+            }
+        });
+    }
+});
+</script>
+</html> 
